@@ -1,4 +1,7 @@
 import styles from "./login.styles.css";
+import { fetchApi } from "../../helpers/fetch-api";
+import { decryptData } from "../../../encrypt";
+import { NavigateTo } from "../../Router";
 
 export function loginScene() {
   const root = document.getElementById("root");
@@ -15,13 +18,28 @@ export function loginScene() {
 
   const $myForm = root.getElementsByTagName("form")[0];
 
-  $myForm.addEventListener("submit", (event) => {
+  $myForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!$emailHtml.value || !$passwordHtml.value) {
       alert("rellena todos los campos");
     }
 
-    console.log($emailHtml.value, $passwordHtml.value);
+    //fetch
+
+    const users = await fetchApi("http://localhost:3000/users");
+    const user = users.find(
+      (user) =>
+        user.email === $emailHtml.value &&
+        decryptData(user.password) === $passwordHtml.value
+    );
+    if (user) {
+      alert("bienvenido");
+      const token = Math.random().toString(36).substring(2);
+      localStorage.setItem("token", token);
+      NavigateTo("/tasks");
+    } else {
+      alert("usuario no encontrado");
+    }
   });
 }
