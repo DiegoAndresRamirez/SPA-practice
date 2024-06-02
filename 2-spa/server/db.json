@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "id": "3a95"
+    },
+    {
+      "id": "4504",
+      "name": "diego",
+      "email": "johndoe@example.com",
+      "password": "U2FsdGVkX19RR/LrnPbLGJvHTBPAoYMI1rEiNCw70Tc="
+    }
+  ],
+  "tasks": [
+    {
+      "id": "bb0d"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+.container-register {
+  width: 100vw;
+  height: 100vh;
+  background-color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-register > .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #212121;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+}
+.container-register > .form > .input-email-register {
+  width: 100%;
+}
+.container-register > .form > .input-name-register {
+  width: 100%;
+}
+.container-register > .form > .input-password-register {
+  width: 100%;
+}
